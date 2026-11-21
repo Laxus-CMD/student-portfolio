@@ -1,4 +1,4 @@
-# Student Portfolio — Dark Glassmorphism
+# Student Portfolio 
 
 A personal portfolio styled like a macOS / visionOS workspace app: a floating frosted-glass window over an atmospheric wallpaper, a collapsible icon rail, a filterable bento project grid with case-study modals, and a floating "Ask Leo" contact drawer.
 
@@ -37,3 +37,7 @@ python -m http.server 8000
 ## Deploy to GitHub Pages
 
 Push to GitHub, then go to **Settings → Pages → Deploy from branch → `main` / root**.
+
+## Live Site
+https://laxus-cmd.github.io/student-portfolio/
+
