@@ -23,6 +23,7 @@ python -m http.server 8000
 | Colors, blur, radii, motion | CSS variables at the top of `styles.css` |
 | Background photo | `assets/wallpaper.jpg` (optional) |
 | Resume | `assets/resume.pdf` |
+| Project images | `assets/projects/images/` (filenames in `assets/projects/README.md`) |
 
 ## Features
 

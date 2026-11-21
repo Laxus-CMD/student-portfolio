@@ -1,6 +1,6 @@
 # Project images
 
-Drop one image per project here using these filenames:
+Drop one image per project into the **`images/`** folder (`assets/projects/images/`) using these filenames:
 
 | Project | File |
 | --- | --- |

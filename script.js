@@ -6,7 +6,7 @@ const CONTACT_EMAIL = "Leoandrei0222@gmail.com";
 const PROJECTS = [
   {
     id: "amarra",
-    image: "assets/projects/amarra.jpg", // your screenshot/photo (any format: .jpg .png .webp)
+    image: "assets/projects/images/amarra.jpg", // put your image in assets/projects/images/ (.jpg .png .webp — match the extension here)
     title: "Amarra",
     subtitle: "Port Labour Cost & Auditing Platform",
     category: "case-study",
@@ -18,7 +18,14 @@ const PROJECTS = [
     wide: true,
     summary:
       "3rd of 18 international teams. A costing and auditing engine that closed a 41.4% unallocated labour-cost blind spot for a Peruvian port terminal.",
-    tags: ["TypeScript", "Next.js", "Neon Postgres", "Vitest", "Vercel AI SDK", "Gemini"],
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "Neon Postgres",
+      "Vitest",
+      "Vercel AI SDK",
+      "Gemini",
+    ],
     problem:
       "TISUR Industry Challenge: a real port logistics problem for Terminal Internacional del Sur S.A. (Peru). USD 9,595 of USD 23,158 in shift wages (jornal) couldn’t be traced to the vessels they were spent on.",
     process: [
@@ -37,7 +44,7 @@ const PROJECTS = [
   },
   {
     id: "college-hub",
-    image: "assets/projects/college-hub.jpg", // your screenshot/photo (any format: .jpg .png .webp)
+    image: "assets/projects/images/college-hub.jpg", // put your image in assets/projects/images/ (.jpg .png .webp — match the extension here)
     title: "College Hub",
     subtitle: "All-in-One Student Academic Dashboard",
     category: "case-study",
@@ -48,7 +55,15 @@ const PROJECTS = [
     hue: 255,
     summary:
       "An offline-first dashboard that unifies timetables, Canvas assignments, markdown notes and GPA simulation in one local-first app.",
-    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Zustand", "Vitest", "GitHub Actions"],
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS v4",
+      "Zustand",
+      "Vitest",
+      "GitHub Actions",
+    ],
     problem:
       "DLSU students juggle timetables, Canvas deadlines, notes and grade calculations across separate tools. College Hub brings them together and keeps working offline, storing everything in localStorage and IndexedDB.",
     process: [
@@ -63,12 +78,15 @@ const PROJECTS = [
     ],
     links: [
       { label: "Live demo", href: "https://laxed-college-hub.vercel.app" },
-      { label: "Source on GitHub", href: "https://github.com/Laxus-CMD/college-hub" },
+      {
+        label: "Source on GitHub",
+        href: "https://github.com/Laxus-CMD/college-hub",
+      },
     ],
   },
   {
     id: "hinigram",
-    image: "assets/projects/hinigram.jpg", // your screenshot/photo (any format: .jpg .png .webp)
+    image: "assets/projects/images/hinigram.jpg", // put your image in assets/projects/images/ (.jpg .png .webp — match the extension here)
     title: "Hinigram",
     subtitle: "Contactless Respiratory Triage System",
     category: "experiment",
@@ -98,7 +116,7 @@ const PROJECTS = [
   },
   {
     id: "pcpug-forum",
-    image: "assets/projects/pcpug-forum.jpg", // your screenshot/photo (any format: .jpg .png .webp)
+    image: "assets/projects/images/pcpug-forum.jpg", // put your image in assets/projects/images/ (.jpg .png .webp — match the extension here)
     title: "Digital Transformation in Coal-Fired Plants",
     subtitle: "30th PCPUG Technical Forum",
     category: "case-study",
@@ -122,7 +140,7 @@ const PROJECTS = [
   },
   {
     id: "notion-relaunch",
-    image: "assets/projects/notion-relaunch.jpg", // your screenshot/photo (any format: .jpg .png .webp)
+    image: "assets/projects/images/notion-relaunch.jpg", // put your image in assets/projects/images/ (.jpg .png .webp — match the extension here)
     title: "Notion Workspace Briefing",
     subtitle: "EISSSI Product Re-launch",
     category: "case-study",
@@ -141,7 +159,9 @@ const PROJECTS = [
       "Mapped four core company workflows into Notion databases.",
       "Built live dashboards on top of those databases and presented them company-wide.",
     ],
-    outcomes: [{ value: "4", label: "core workflows mapped to databases & dashboards" }],
+    outcomes: [
+      { value: "4", label: "core workflows mapped to databases & dashboards" },
+    ],
     links: [],
   },
 ];
@@ -201,7 +221,7 @@ const EXPERIENCE = [
   },
   {
     role: "Invited Guest · Nuclear Engineering Symposium",
-    org: "Curtiss-Wright · Idaho, USA",
+    org: "Curtiss-Wright · Idaho, USA | SAS Global & Airflow Sciences · Detroit, USA",
     date: "3-day symposium",
     note: "Joined site visits with Airflow Sciences and SAS Global and helped prepare EISSSI’s presentation on the Philippine energy industry.",
   },
@@ -242,7 +262,13 @@ const FAQ = [
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const esc = (s) =>
-  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  String(s).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
 const svg = (paths, extra = "") =>
@@ -251,13 +277,21 @@ const svg = (paths, extra = "") =>
 const ICONS = {
   arrow: svg('<path d="M7 17 17 7M8 7h9v9"/>'),
   close: svg('<path d="M18 6 6 18M6 6l12 12"/>'),
-  pen: svg('<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>'),
+  pen: svg(
+    '<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/>',
+  ),
   code: svg('<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>'),
   search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
-  layers: svg('<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>'),
+  layers: svg(
+    '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+  ),
   play: svg('<path d="M6 4l14 8-14 8z"/>'),
-  database: svg('<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>'),
-  chip: svg('<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>'),
+  database: svg(
+    '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+  ),
+  chip: svg(
+    '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  ),
   deploy: svg('<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>'),
 };
 
@@ -266,7 +300,8 @@ const CATEGORY_LABEL = { "case-study": "Case Study", experiment: "Experiment" };
 // Image hints ("drop your image here") only appear while previewing locally,
 // so they never show on the published site.
 const IS_LOCAL_PREVIEW =
-  location.protocol === "file:" || ["localhost", "127.0.0.1", ""].includes(location.hostname);
+  location.protocol === "file:" ||
+  ["localhost", "127.0.0.1", ""].includes(location.hostname);
 
 /* Project thumbnails: shows p.image if the file exists; otherwise falls back
    to the generated glass mock-up (plus a hint with the expected path when
@@ -284,12 +319,13 @@ const thumbMarkup = (p) => `
              style="object-position:${esc(p.imagePosition || "center")}"
              onload="this.parentNode.classList.add('is-loaded')"
              onerror="this.parentNode.classList.add('is-missing'); this.remove()" />
-           ${IS_LOCAL_PREVIEW ? `<span class="thumb__hint"><span>Add image → ${esc(p.image)}</span></span>` : ""}`
+           ${IS_LOCAL_PREVIEW ? `<span class="thumb__hint">Add image → ${esc(p.image)}</span>` : ""}`
         : ""
     }
   </div>`;
 
-const tagsMarkup = (tags) => `<ul class="tags">${tags.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>`;
+const tagsMarkup = (tags) =>
+  `<ul class="tags">${tags.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>`;
 
 /* ==========================================================================
    Render content
@@ -311,12 +347,15 @@ function renderProjects() {
         <p class="card__summary">${esc(p.summary)}</p>
         ${tagsMarkup(p.tags)}
       </div>
-    </article>`
+    </article>`,
   ).join("");
 
   $$("[data-count]").forEach((el) => {
     const f = el.dataset.count;
-    el.textContent = f === "all" ? PROJECTS.length : PROJECTS.filter((p) => p.category === f).length;
+    el.textContent =
+      f === "all"
+        ? PROJECTS.length
+        : PROJECTS.filter((p) => p.category === f).length;
   });
 }
 
@@ -330,7 +369,7 @@ function renderSkills() {
         <p class="skill__desc">${esc(s.desc)}</p>
         ${tagsMarkup(s.tools)}
       </div>
-    </li>`
+    </li>`,
   ).join("");
 }
 
@@ -344,13 +383,14 @@ function renderExperience() {
         ${e.note ? `<p class="timeline__note">${esc(e.note)}</p>` : ""}
       </div>
       <span class="timeline__date">${esc(e.date)}</span>
-    </li>`
+    </li>`,
   ).join("");
 }
 
 function renderFaq() {
   $("#pane-faq").innerHTML = FAQ.map(
-    (f, i) => `<details${i === 0 ? " open" : ""}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`
+    (f, i) =>
+      `<details${i === 0 ? " open" : ""}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`,
   ).join("");
 }
 
@@ -367,12 +407,14 @@ function moveIndicator(group) {
 const refreshIndicators = () => $$(".segmented").forEach(moveIndicator);
 
 /* ── Project filtering ── */
-const filterGroup = $('#work .segmented');
+const filterGroup = $("#work .segmented");
 
 filterGroup.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-filter]");
   if (!btn) return;
-  $$("[data-filter]", filterGroup).forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+  $$("[data-filter]", filterGroup).forEach((b) =>
+    b.setAttribute("aria-pressed", String(b === btn)),
+  );
   moveIndicator(filterGroup);
   applyFilter(btn.dataset.filter);
 });
@@ -395,7 +437,8 @@ function applyFilter(filter) {
 /* ==========================================================================
    Card tilt micro-interaction
    ========================================================================== */
-const canTilt = () => matchMedia("(hover: hover)").matches && !reduceMotion.matches;
+const canTilt = () =>
+  matchMedia("(hover: hover)").matches && !reduceMotion.matches;
 
 grid.addEventListener("pointermove", (e) => {
   const card = e.target.closest(".card");
@@ -435,7 +478,7 @@ function closeDialog(dlg) {
       dlg.classList.remove("is-closing");
       dlg.close();
     },
-    { once: true }
+    { once: true },
   );
 }
 
@@ -504,7 +547,7 @@ function openProject(id) {
           ? `<div class="modal__actions">${p.links
               .map(
                 (l, i) =>
-                  `<a class="btn ${i === 0 ? "btn--primary" : "btn--ghost"}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} ${ICONS.arrow}</a>`
+                  `<a class="btn ${i === 0 ? "btn--primary" : "btn--ghost"}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} ${ICONS.arrow}</a>`,
               )
               .join("")}</div>`
           : ""
@@ -527,7 +570,7 @@ $$("[data-open-drawer]").forEach((btn) =>
   btn.addEventListener("click", () => {
     openDialog(drawer);
     requestAnimationFrame(() => moveIndicator($(".segmented", drawer)));
-  })
+  }),
 );
 
 const tabs = $$('[role="tab"]', drawer);
@@ -544,7 +587,11 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => selectTab(tab));
   tab.addEventListener("keydown", (e) => {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    const next = tabs[(tabs.indexOf(tab) + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length];
+    const next =
+      tabs[
+        (tabs.indexOf(tab) + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) %
+          tabs.length
+      ];
     next.focus();
     selectTab(next);
   });
@@ -594,11 +641,20 @@ const railToggle = $("#rail-toggle");
 function setRail(expanded) {
   app.classList.toggle("is-expanded", expanded);
   railToggle.setAttribute("aria-expanded", String(expanded));
-  railToggle.setAttribute("aria-label", expanded ? "Collapse sidebar" : "Expand sidebar");
-  try { localStorage.setItem("rail-expanded", expanded ? "1" : "0"); } catch {}
+  railToggle.setAttribute(
+    "aria-label",
+    expanded ? "Collapse sidebar" : "Expand sidebar",
+  );
+  try {
+    localStorage.setItem("rail-expanded", expanded ? "1" : "0");
+  } catch {}
 }
-railToggle.addEventListener("click", () => setRail(!app.classList.contains("is-expanded")));
-try { setRail(localStorage.getItem("rail-expanded") === "1"); } catch {}
+railToggle.addEventListener("click", () =>
+  setRail(!app.classList.contains("is-expanded")),
+);
+try {
+  setRail(localStorage.getItem("rail-expanded") === "1");
+} catch {}
 
 const canvas = $("#main");
 const links = $$(".rail__link[data-section]");
@@ -609,7 +665,8 @@ let currentSection = "";
 
 function updateSpy() {
   const probe = canvas.scrollTop + canvas.clientHeight * 0.35;
-  const atBottom = canvas.scrollTop + canvas.clientHeight >= canvas.scrollHeight - 4;
+  const atBottom =
+    canvas.scrollTop + canvas.clientHeight >= canvas.scrollHeight - 4;
   let id = sections[0].id;
   for (const s of sections) if (s.offsetTop <= probe) id = s.id;
   if (atBottom) id = sections[sections.length - 1].id;
@@ -619,7 +676,9 @@ function updateSpy() {
   links.forEach((l) => {
     const on = l.dataset.section === id;
     l.classList.toggle("is-active", on);
-    on ? l.setAttribute("aria-current", "true") : l.removeAttribute("aria-current");
+    on
+      ? l.setAttribute("aria-current", "true")
+      : l.removeAttribute("aria-current");
     if (on) sectionTitle.textContent = l.textContent.trim();
   });
 }
@@ -635,7 +694,7 @@ canvas.addEventListener(
       updateSpy();
     });
   },
-  { passive: true }
+  { passive: true },
 );
 
 /* ==========================================================================
