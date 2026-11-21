@@ -520,11 +520,54 @@ svg { width: 18px; height: 18px; flex: none; }
   position: relative;
   height: 188px;
   overflow: hidden;
+  isolation: isolate; /* keep image layers below the card badge */
   background:
     radial-gradient(circle at 22% 18%, hsl(var(--h) 85% 62% / 0.55), transparent 55%),
     radial-gradient(circle at 85% 95%, hsl(calc(var(--h) + 50) 80% 58% / 0.45), transparent 55%),
     linear-gradient(160deg, #141418, #0c0c0f);
   border-bottom: 1px solid var(--border-card);
+}
+
+/* Real project images (assets/projects/*). The mock UI below stays as the
+   fallback and is hidden once an image loads. */
+.thumb__img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.5s var(--ease), transform 0.8s var(--ease);
+}
+.thumb.is-loaded .thumb__img { opacity: 1; transform: none; }
+.thumb.is-loaded .thumb__ui,
+.thumb.is-loaded .thumb__hint { display: none; }
+.card:hover .thumb.is-loaded .thumb__img { transform: scale(1.03); }
+
+/* Placeholder hint — only rendered during local preview (see script.js) */
+.thumb__hint {
+  position: absolute;
+  inset: 10px;
+  z-index: 1;
+  display: none;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 8px 10px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  font-size: 0.6875rem;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  color: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+.thumb.is-missing .thumb__hint { display: flex; }
+.thumb__hint span {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(10, 10, 12, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* Mock UI inside each thumbnail */

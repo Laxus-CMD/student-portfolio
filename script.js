@@ -6,6 +6,7 @@ const CONTACT_EMAIL = "Leoandrei0222@gmail.com";
 const PROJECTS = [
   {
     id: "amarra",
+    image: "assets/projects/amarra.jpg", // your screenshot/photo (any format: .jpg .png .webp)
     title: "Amarra",
     subtitle: "Port Labour Cost & Auditing Platform",
     category: "case-study",
@@ -36,6 +37,7 @@ const PROJECTS = [
   },
   {
     id: "college-hub",
+    image: "assets/projects/college-hub.jpg", // your screenshot/photo (any format: .jpg .png .webp)
     title: "College Hub",
     subtitle: "All-in-One Student Academic Dashboard",
     category: "case-study",
@@ -66,6 +68,7 @@ const PROJECTS = [
   },
   {
     id: "hinigram",
+    image: "assets/projects/hinigram.jpg", // your screenshot/photo (any format: .jpg .png .webp)
     title: "Hinigram",
     subtitle: "Contactless Respiratory Triage System",
     category: "experiment",
@@ -95,6 +98,7 @@ const PROJECTS = [
   },
   {
     id: "pcpug-forum",
+    image: "assets/projects/pcpug-forum.jpg", // your screenshot/photo (any format: .jpg .png .webp)
     title: "Digital Transformation in Coal-Fired Plants",
     subtitle: "30th PCPUG Technical Forum",
     category: "case-study",
@@ -118,6 +122,7 @@ const PROJECTS = [
   },
   {
     id: "notion-relaunch",
+    image: "assets/projects/notion-relaunch.jpg", // your screenshot/photo (any format: .jpg .png .webp)
     title: "Notion Workspace Briefing",
     subtitle: "EISSSI Product Re-launch",
     category: "case-study",
@@ -258,13 +263,30 @@ const ICONS = {
 
 const CATEGORY_LABEL = { "case-study": "Case Study", experiment: "Experiment" };
 
+// Image hints ("drop your image here") only appear while previewing locally,
+// so they never show on the published site.
+const IS_LOCAL_PREVIEW =
+  location.protocol === "file:" || ["localhost", "127.0.0.1", ""].includes(location.hostname);
+
+/* Project thumbnails: shows p.image if the file exists; otherwise falls back
+   to the generated glass mock-up (plus a hint with the expected path when
+   previewing locally). */
 const thumbMarkup = (p) => `
-  <div class="thumb" style="--h:${Number(p.hue) || 230}" aria-hidden="true">
+  <div class="thumb${p.image ? " has-image" : ""}" style="--h:${Number(p.hue) || 230}" aria-hidden="true">
     <div class="thumb__ui">
       <div class="thumb__dots"><i></i><i></i><i></i></div>
       <div class="thumb__side"><i></i><i></i><i></i><i></i></div>
       <div class="thumb__main"><b></b><i></i><i></i><i></i></div>
     </div>
+    ${
+      p.image
+        ? `<img class="thumb__img" src="${esc(p.image)}" alt="" loading="lazy" decoding="async"
+             style="object-position:${esc(p.imagePosition || "center")}"
+             onload="this.parentNode.classList.add('is-loaded')"
+             onerror="this.parentNode.classList.add('is-missing'); this.remove()" />
+           ${IS_LOCAL_PREVIEW ? `<span class="thumb__hint"><span>Add image → ${esc(p.image)}</span></span>` : ""}`
+        : ""
+    }
   </div>`;
 
 const tagsMarkup = (tags) => `<ul class="tags">${tags.map((t) => `<li class="tag">${esc(t)}</li>`).join("")}</ul>`;
