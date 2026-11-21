@@ -1,166 +1,234 @@
 /* ==========================================================================
-   Portfolio content — edit these arrays to make the site yours.
+   Portfolio content — edit these arrays to update the site.
    ========================================================================== */
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "Leoandrei0222@gmail.com";
 
 const PROJECTS = [
   {
-    id: "campus-transit",
-    title: "Campus Transit Tracker",
+    id: "amarra",
+    title: "Amarra",
+    subtitle: "Port Labour Cost & Auditing Platform",
     category: "case-study",
-    role: "Lead Designer & Frontend",
-    year: "2026",
-    duration: "10 weeks",
-    team: "3 students",
-    hue: 200,
+    role: "Back-End Developer",
+    year: "Nov 2026",
+    context: "LaSalle Port Innovation 2026 Hackathon",
+    team: "Hackathon team",
+    hue: 195,
     wide: true,
-    summary: "A real-time shuttle map now used by 4,000+ students, cutting “where’s my bus?” complaints by 38%.",
-    tags: ["React", "Mapbox", "Figma", "WebSockets"],
+    summary:
+      "3rd of 18 international teams. A costing and auditing engine that closed a 41.4% unallocated labour-cost blind spot for a Peruvian port terminal.",
+    tags: ["TypeScript", "Next.js", "Neon Postgres", "Vitest", "Vercel AI SDK", "Gemini"],
     problem:
-      "Campus shuttles ran on a printed schedule that drifted by 10–15 minutes daily. Students waited in the cold with no idea whether a bus was coming.",
+      "TISUR Industry Challenge: a real port logistics problem for Terminal Internacional del Sur S.A. (Peru). USD 9,595 of USD 23,158 in shift wages (jornal) couldn’t be traced to the vessels they were spent on.",
     process: [
-      "Interviewed 18 riders and 2 drivers; mapped the journey from leaving class to boarding.",
-      "Prototyped three map-first concepts in Figma and ran hallway tests with 12 students.",
-      "Built the PWA in React with live GPS pings streamed over WebSockets.",
-      "Partnered with Transportation Services to put QR codes on every stop.",
+      "Engineered a stateless TypeScript costing engine with integer-cent arithmetic and half-up rounding to allocate shift wages to vessels.",
+      "Built a 6-tier assignment cascade with confidence scoring and fuzzy matching (Jaro-Winkler and Naive Bayes) to parse Spanish free-text field logs, routing low-confidence entries to supervisor review.",
+      "Implemented anomaly detection (Isolation Forest on wage-to-headcount discrepancies) and pre-berth crew and cost forecasting, with Google Gemini via Vercel AI Gateway for cross-table auditing.",
+      "Designed a tamper-evident Neon Postgres architecture: SHA-256 dataset hashing, append-only audit logs, segregation of duties, OIDC/PKCE SSO, scrypt password hashing and encrypted hourly backups.",
+      "Wrote Vitest golden-number test suites for cent-level reconciliation across imports, API mutations and report exports.",
     ],
     outcomes: [
-      { value: "4,000+", label: "monthly active riders" },
-      { value: "−38%", label: "wait-time complaints" },
-      { value: "4.7★", label: "student satisfaction" },
+      { value: "3rd", label: "of 18 international teams" },
+      { value: "41.4%", label: "unallocated labour cost addressed" },
+      { value: "USD 9,595", label: "of 23,158 previously untraced" },
+    ],
+    links: [],
+  },
+  {
+    id: "college-hub",
+    title: "College Hub",
+    subtitle: "All-in-One Student Academic Dashboard",
+    category: "case-study",
+    role: "Creator & Sole Developer",
+    year: "Oct 2026 — Now",
+    context: "Personal project for DLSU students",
+    team: "Solo",
+    hue: 255,
+    summary:
+      "An offline-first dashboard that unifies timetables, Canvas assignments, markdown notes and GPA simulation in one local-first app.",
+    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "Zustand", "Vitest", "GitHub Actions"],
+    problem:
+      "DLSU students juggle timetables, Canvas deadlines, notes and grade calculations across separate tools. College Hub brings them together and keeps working offline, storing everything in localStorage and IndexedDB.",
+    process: [
+      "Engineered a Canvas iCal (.ics) parser and urgency engine that extracts course tags, maps deadlines to courses with idempotent deduplication and prioritizes tasks across live time-state views.",
+      "Built a weighted what-if grade and GPA simulator with custom grading scales, ungraded-component sliders, required-average calculations and term and cumulative GPA targets.",
+      "Developed a time-aware hero engine with live session countdowns, overlap-validated weekly schedules, session-linked notes, global keyboard search and optional Google OAuth.",
+      "Configured GitHub Actions CI/CD running Oxlint, Vitest unit and component tests and production Vite builds on every push, with continuous deploys to Vercel.",
+    ],
+    outcomes: [
+      { value: "Offline-first", label: "localStorage + IndexedDB" },
+      { value: "Every push", label: "linted, tested and built in CI" },
     ],
     links: [
-      { label: "View live site", href: "#" },
-      { label: "Source on GitHub", href: "#" },
+      { label: "Live demo", href: "https://laxed-college-hub.vercel.app" },
+      { label: "Source on GitHub", href: "https://github.com/Laxus-CMD/college-hub" },
     ],
   },
   {
-    id: "studysync",
-    title: "StudySync",
-    category: "case-study",
-    role: "Product Designer",
-    year: "2025",
-    duration: "36-hour hackathon",
-    team: "4 students",
-    hue: 265,
-    summary: "A collaborative study planner that won 1st place at HackState out of 60 teams.",
-    tags: ["Figma", "Next.js", "Supabase"],
+    id: "hinigram",
+    title: "Hinigram",
+    subtitle: "Contactless Respiratory Triage System",
+    category: "experiment",
+    role: "Co-designer · Team Gengineers",
+    year: "2026",
+    context: "PJDSC ’26 — Public Health Analytics",
+    team: "Team Gengineers",
+    hue: 160,
+    summary:
+      "Reads breathing from WiFi Channel State Information on 4 ESP32 nodes, separating up to 3 people at once without touching them.",
+    tags: ["Python", "ESP32", "WiFi CSI", "FastICA", "Signal Processing"],
     problem:
-      "Study groups coordinate across group chats, shared docs and calendars — and still miss sessions.",
+      "Respiratory triage usually needs contact sensors or staff time. Hinigram explores whether ordinary WiFi signals can flag irregular breathing for several seated people at once.",
     process: [
-      "Ran a 15-minute survey with 40 classmates on the first night.",
-      "Designed a single shared board combining availability, goals and resources.",
-      "Built a clickable prototype and demo flow for the judges.",
+      "Co-designed a contactless triage system reading breathing from WiFi Channel State Information on 4 ESP32 nodes.",
+      "Built a Python signal pipeline (Hampel filter, FastICA, 0.2–0.5 Hz Butterworth bandpass) that separates breathing for up to 3 people at once.",
+      "Used Hopf oscillator phase-locking to flag irregular breathing.",
+      "Developed a live dashboard with seat-level alerts and an event log.",
     ],
     outcomes: [
-      { value: "1st", label: "place out of 60 teams" },
-      { value: "40", label: "students surveyed" },
+      { value: "4", label: "ESP32 sensing nodes" },
+      { value: "Up to 3", label: "people separated at once" },
+      { value: "≥90%", label: "sensitivity (design target)" },
+      { value: "≤2 s", label: "alert latency (design target)" },
     ],
-    links: [{ label: "Watch the demo", href: "#" }],
+    links: [],
   },
   {
-    id: "shader-garden",
-    title: "Shader Garden",
-    category: "experiment",
-    role: "Creative Coding",
-    year: "2026",
-    duration: "Ongoing",
-    team: "Solo",
-    hue: 150,
-    summary: "Generative plants grown entirely in fragment shaders — a playground for learning GLSL.",
-    tags: ["GLSL", "Three.js"],
-    problem: "I wanted to understand shaders by making something I’d enjoy looking at every day.",
-    process: [
-      "Started from signed-distance functions for stems and petals.",
-      "Added noise-driven wind and a day/night palette tied to local time.",
-    ],
-    outcomes: [{ value: "60fps", label: "on a 2019 laptop" }],
-    links: [{ label: "Open the garden", href: "#" }],
-  },
-  {
-    id: "library-booking",
-    title: "Library Room Booking",
+    id: "pcpug-forum",
+    title: "Digital Transformation in Coal-Fired Plants",
+    subtitle: "30th PCPUG Technical Forum",
     category: "case-study",
-    role: "UX Researcher",
-    year: "2025",
-    duration: "HCI course project",
-    team: "2 students",
-    hue: 25,
-    summary: "A usability study that cut the room-booking flow from 7 steps to 3.",
-    tags: ["User Research", "Prototyping", "Usability Testing"],
+    role: "Presenter & Designer",
+    year: "EISSSI",
+    context: "30th PCPUG Technical Forum",
+    team: "EISSSI",
+    hue: 30,
+    summary:
+      "Designed and built the forum presentation, turning Philippine energy mix, plant capacity and unit efficiency data into dashboards.",
+    tags: ["Data Visualization", "Presentation Design", "Energy"],
     problem:
-      "The library’s room booking took seven screens and a login redirect; 1 in 3 students gave up halfway.",
+      "The forum’s audience of power-plant engineers needed a clear, data-backed picture of where digital transformation fits in coal-fired generation in the Philippines.",
     process: [
-      "Ran moderated usability tests with 24 students and logged every drop-off.",
-      "Synthesised findings in an affinity map and prioritised with the library staff.",
-      "Prototyped a 3-step flow and validated it in a second round of testing.",
+      "Gathered Philippine energy mix, plant capacity and unit efficiency data.",
+      "Turned the data into dashboards that anchor the narrative of the talk.",
+      "Designed and built the full presentation for EISSSI.",
     ],
-    outcomes: [
-      { value: "7 → 3", label: "steps to book" },
-      { value: "92%", label: "task success (from 64%)" },
-    ],
-    links: [{ label: "Read the report", href: "#" }],
+    outcomes: [{ value: "30th", label: "PCPUG Technical Forum" }],
+    links: [],
   },
   {
-    id: "type-playground",
-    title: "Type Scale Playground",
-    category: "experiment",
-    role: "Design Tooling",
-    year: "2026",
-    duration: "Weekend project",
-    team: "Solo",
-    hue: 320,
-    summary: "A tiny tool for previewing fluid type scales and exporting them as CSS variables.",
-    tags: ["TypeScript", "CSS"],
-    problem: "I kept rebuilding the same clamp() math for every class project.",
+    id: "notion-relaunch",
+    title: "Notion Workspace Briefing",
+    subtitle: "EISSSI Product Re-launch",
+    category: "case-study",
+    role: "Presenter",
+    year: "EISSSI",
+    context: "Company-wide product re-launch",
+    team: "EISSSI",
+    hue: 280,
+    summary:
+      "A company-wide briefing positioning Notion against Salesforce, Microsoft 365 and Asana, with four core workflows mapped into databases and live dashboards.",
+    tags: ["Notion", "Workflow Design", "Dashboards"],
+    problem:
+      "For EISSSI’s product re-launch, the company needed to see how Notion compares with the tools teams already know, and what their own workflows would look like inside it.",
     process: [
-      "Built a live preview that interpolates sizes between two viewport widths.",
-      "Added one-click export to CSS custom properties and Tailwind config.",
+      "Positioned Notion against Salesforce, Microsoft 365 and Asana.",
+      "Mapped four core company workflows into Notion databases.",
+      "Built live dashboards on top of those databases and presented them company-wide.",
     ],
-    outcomes: [{ value: "300+", label: "GitHub stars" }],
-    links: [{ label: "Try it", href: "#" }],
-  },
-  {
-    id: "gesture-piano",
-    title: "Gesture Piano",
-    category: "experiment",
-    role: "Prototype",
-    year: "2025",
-    duration: "2 weeks",
-    team: "Solo",
-    hue: 45,
-    summary: "Play chords in the air with your webcam using hand tracking and the Web Audio API.",
-    tags: ["MediaPipe", "Web Audio"],
-    problem: "Could a browser instrument feel responsive enough to actually play?",
-    process: [
-      "Mapped finger positions from MediaPipe to a pentatonic scale.",
-      "Tuned latency below 40ms by moving audio scheduling off the main thread.",
-    ],
-    outcomes: [{ value: "<40ms", label: "gesture-to-sound latency" }],
-    links: [{ label: "Play in browser", href: "#" }],
+    outcomes: [{ value: "4", label: "core workflows mapped to databases & dashboards" }],
+    links: [],
   },
 ];
 
 const SKILLS = [
-  { name: "Interface Design", desc: "Clear, calm product UI from flows to pixel polish.", tools: ["Figma", "Framer"], icon: "pen" },
-  { name: "Frontend Engineering", desc: "Accessible, fast interfaces that match the design.", tools: ["React", "TypeScript", "CSS"], icon: "code" },
-  { name: "User Research", desc: "Interviews, usability tests and turning notes into decisions.", tools: ["Dovetail", "Maze"], icon: "search" },
-  { name: "Design Systems", desc: "Tokens, components and docs that scale across a team.", tools: ["Storybook", "Tokens"], icon: "layers" },
-  { name: "Prototyping & Motion", desc: "Interaction details that make products feel alive.", tools: ["Principle", "GSAP"], icon: "play" },
+  {
+    name: "Back-End Engineering",
+    desc: "Stateless services, careful money math, auditable data and tests that pin numbers down.",
+    tools: ["Next.js", "Neon Postgres", "Vitest"],
+    icon: "database",
+  },
+  {
+    name: "Frontend Development",
+    desc: "Offline-first, keyboard-friendly React apps.",
+    tools: ["React", "Tailwind CSS", "Zustand", "Vite"],
+    icon: "layers",
+  },
+  {
+    name: "Embedded & Signal Processing",
+    desc: "Sensing prototypes from ESP32 hardware to filtered signals.",
+    tools: ["ESP32", "WiFi CSI", "Hampel", "FastICA", "Butterworth"],
+    icon: "chip",
+  },
+  {
+    name: "Programming Languages",
+    desc: "Comfortable across typed, scripting and systems languages.",
+    tools: ["Python", "Java", "JavaScript", "TypeScript", "C++", "HTML", "CSS"],
+    icon: "code",
+  },
+  {
+    name: "CI/CD & Deployment",
+    desc: "Automated lint, test and build pipelines with continuous deploys.",
+    tools: ["GitHub Actions", "Vercel"],
+    icon: "deploy",
+  },
+  {
+    name: "Design & Presentation",
+    desc: "Turning data and workflows into clear decks and dashboards.",
+    tools: ["Notion", "Figma", "Canva", "TinkerCAD", "Fusion 360"],
+    icon: "pen",
+  },
 ];
 
 const EXPERIENCE = [
-  { role: "Frontend Engineering Intern", org: "Northwind Labs", date: "Jun — Aug 2026", note: "Shipped a design-system migration across 40+ screens." },
-  { role: "Teaching Assistant, Intro to HCI", org: "State University", date: "Jan 2026 — Now", current: true, note: "Lead weekly critiques for 30 students." },
-  { role: "Design Lead", org: "University Hackers Club", date: "2025 — Now", current: true },
-  { role: "Freelance Web Developer", org: "Local small businesses", date: "2024 — 2025", note: "Built 6 sites for cafés, studios and nonprofits." },
+  {
+    role: "Engineering Intern · Presenter & Designer",
+    org: "Energy Integrated Systems and Support Services Inc. (EISSSI) · Laguna & Tarlac",
+    date: "Jan 2025 — Now",
+    current: true,
+    note: "Cadetship Onboarding Program. Built and presented the Notion re-launch briefing and the 30th PCPUG Technical Forum deck.",
+  },
+  {
+    role: "Secretariat Intern · US Business Trips",
+    org: "EISSSI with Curtiss-Wright & Airflow Sciences",
+    date: "Jan 2025 · Jun 2026",
+    note: "Recorded meeting minutes and handled flights, accommodation and transport for the delegation.",
+  },
+  {
+    role: "Invited Guest · Nuclear Engineering Symposium",
+    org: "Curtiss-Wright · Idaho, USA",
+    date: "3-day symposium",
+    note: "Joined site visits with Airflow Sciences and SAS Global and helped prepare EISSSI’s presentation on the Philippine energy industry.",
+  },
+  {
+    role: "3rd Place · LaSalle Port Innovation 2026",
+    org: "International Hackathon — TISUR Industry Challenge",
+    date: "Nov 2026",
+  },
+  {
+    role: "Participant · PJDSC ’26",
+    org: "Public Health Analytics — Team Gengineers",
+    date: "2026",
+  },
 ];
 
 const FAQ = [
-  { q: "Are you available for internships?", a: "Yes! I’m looking for Summer 2027 product design or frontend internships — remote or in Boston." },
-  { q: "What are you studying?", a: "Computer Science with a minor in Design at State University, graduating May 2028." },
-  { q: "What’s your favourite stack?", a: "Figma for exploring, then React + TypeScript with plain CSS (or Tailwind) for building." },
-  { q: "Can I see more work?", a: "Absolutely — send a quick message and I’ll share additional case studies and process files." },
+  {
+    q: "What are you studying?",
+    a: "BS Computer Engineering at De La Salle University, Laguna Campus in Biñan, Laguna (2026 to present).",
+  },
+  {
+    q: "What kind of work do you do?",
+    a: "Mostly back-end and full-stack TypeScript (Next.js, Postgres), React frontends, and embedded / signal-processing prototypes on ESP32.",
+  },
+  {
+    q: "Where can I see your code?",
+    a: "On GitHub at github.com/Laxus-CMD. College Hub also has a live demo at laxed-college-hub.vercel.app.",
+  },
+  {
+    q: "What’s the best way to reach you?",
+    a: "Send a quick message from this panel, or email Leoandrei0222@gmail.com directly.",
+  },
 ];
 
 /* ==========================================================================
@@ -183,6 +251,9 @@ const ICONS = {
   search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
   layers: svg('<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>'),
   play: svg('<path d="M6 4l14 8-14 8z"/>'),
+  database: svg('<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>'),
+  chip: svg('<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>'),
+  deploy: svg('<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>'),
 };
 
 const CATEGORY_LABEL = { "case-study": "Case Study", experiment: "Experiment" };
@@ -214,6 +285,7 @@ function renderProjects() {
       <div class="card__body">
         <p class="card__meta">${esc(p.role)} · ${esc(p.year)}</p>
         <h3 class="card__title">${esc(p.title)}</h3>
+        ${p.subtitle ? `<p class="card__subtitle">${esc(p.subtitle)}</p>` : ""}
         <p class="card__summary">${esc(p.summary)}</p>
         ${tagsMarkup(p.tags)}
       </div>
@@ -373,27 +445,28 @@ function openProject(id) {
     <div class="modal__body">
       <p class="card__meta">${esc(p.role)} · ${esc(p.year)}</p>
       <h2 class="modal__title" id="modal-title">${esc(p.title)}</h2>
+      ${p.subtitle ? `<p class="modal__subtitle">${esc(p.subtitle)}</p>` : ""}
       <p class="modal__lede">${esc(p.summary)}</p>
 
       <dl class="facts">
         <div><dt>Role</dt><dd>${esc(p.role)}</dd></div>
-        <div><dt>Timeline</dt><dd>${esc(p.duration)}</dd></div>
+        <div><dt>Context</dt><dd>${esc(p.context)}</dd></div>
         <div><dt>Team</dt><dd>${esc(p.team)}</dd></div>
-        <div><dt>Year</dt><dd>${esc(p.year)}</dd></div>
+        <div><dt>When</dt><dd>${esc(p.year)}</dd></div>
       </dl>
 
       <section class="modal__section">
-        <h3>The problem</h3>
+        <h3>The challenge</h3>
         <p>${esc(p.problem)}</p>
       </section>
 
       <section class="modal__section">
-        <h3>Process</h3>
+        <h3>What I did</h3>
         <ol class="steps">${p.process.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
       </section>
 
       <section class="modal__section">
-        <h3>Outcome</h3>
+        <h3>Highlights</h3>
         <div class="outcomes">
           ${p.outcomes.map((o) => `<div class="outcome"><strong>${esc(o.value)}</strong><span>${esc(o.label)}</span></div>`).join("")}
         </div>
@@ -404,14 +477,16 @@ function openProject(id) {
         ${tagsMarkup(p.tags)}
       </section>
 
-      <div class="modal__actions">
-        ${p.links
-          .map(
-            (l, i) =>
-              `<a class="btn ${i === 0 ? "btn--primary" : "btn--ghost"}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} ${ICONS.arrow}</a>`
-          )
-          .join("")}
-      </div>
+      ${
+        p.links.length
+          ? `<div class="modal__actions">${p.links
+              .map(
+                (l, i) =>
+                  `<a class="btn ${i === 0 ? "btn--primary" : "btn--ghost"}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)} ${ICONS.arrow}</a>`
+              )
+              .join("")}</div>`
+          : ""
+      }
     </div>`;
 
   openDialog(modal);

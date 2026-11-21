@@ -1,6 +1,6 @@
 # Student Portfolio — Dark Glassmorphism
 
-A personal portfolio styled like a macOS / visionOS workspace app: a floating frosted-glass window over an atmospheric wallpaper, a collapsible icon rail, a filterable bento project grid with case-study modals, and a floating "Ask Alex" contact drawer.
+A personal portfolio styled like a macOS / visionOS workspace app: a floating frosted-glass window over an atmospheric wallpaper, a collapsible icon rail, a filterable bento project grid with case-study modals, and a floating "Ask Leo" contact drawer.
 
 Built with plain **HTML, CSS and vanilla JavaScript**. There's no build step and nothing to install.
 
